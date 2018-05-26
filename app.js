@@ -43,7 +43,8 @@ app.use('/admin',require('./routers/admin'));
 app.use('/api',require('./routers/api'));
 app.use('/',require('./routers/main'));
 
-mongoose.connect('mongodb://localhost:27018/nodeblog',function(err){
+//url:  mongodb://username:password@localhost:27017/your_data_base
+mongoose.connect('mongodb://nodeblog:nodeblog@localhost:27018/nodeblog',function(err){
 	if(err){
 		console.log('fail to connect database');
 	} else {
