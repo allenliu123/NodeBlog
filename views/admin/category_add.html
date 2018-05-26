@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block main%}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/category">分类管理</a></li>
+    <li class="breadcrumb-item active" aria-current="page">添加分类</li>
+  </ol>
+</nav>
+
+<h3>添加分类</h3>
+
+<form action="/admin/category/add" method="post">
+	<div class="form-group">
+		<label for="categoryname">添加分类</label>
+		<input type="text" name="name" class="form-control" id="categoryname" placeholder="添加分类">
+	</div>
+	<button type="submit" class="btn btn-primary">提交</button>
+</form>
+
+{% endblock %}

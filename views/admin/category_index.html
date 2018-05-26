@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block main%}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">分类首页</li>
+  </ol>
+</nav>
+
+<h3>分类首页</h3>
+
+<table class="table table-hover table-striped">
+	<tr>
+		<th>_id</th>
+		<th>分类名</th>
+		<th>操作</th>
+	</tr>
+	{% for category in categories %}
+	<tr>
+		<td>{{category.id}}</td>
+		<td>{{category.name}}</td>
+		<td>
+			<a href="/admin/category/edit?id={{category._id.toString()}}">edit</a> |
+			<a href="/admin/category/delete?id={{category._id.toString()}}">delete</a>
+		</td>
+	</tr>
+	{% endfor %}
+</table>
+
+
+{% endblock %}

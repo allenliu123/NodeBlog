@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% block main%}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/content">内容管理</a></li>
+    <li class="breadcrumb-item active" aria-current="page">编辑内容</li>
+  </ol>
+</nav>
+
+<h3>编辑内容 - {{content.title}}</3>
+
+<form method="post">
+	<div class="form-group">
+		<label for="category">分类</label>
+		<select name="category" id="category" class="form-control">
+			{% for category in categories %}
+				{% if content.category.name == category.name %}
+				<option value="{{category.id}}" selected>{{category.name}}</option>
+				{% else %}
+				<option value="{{category.id}}">{{category.name}}</option>
+				{% endif %}
+
+			{% endfor %}
+		</select>
+		<label for="title">标题:</label>
+		<input type="text" name="title" class="form-control" id="title" value="{{content.title}}" placeholder="title">
+		<label for="description">简介:</label>
+		<textarea name="description" class="form-control" id="description" placeholder="description" rows="2">{{content.description}}</textarea>
+		<label for="content">内容:</label>
+		<textarea name="content" class="form-control" id="content" placeholder="content" rows="5">{{content.content}}</textarea>
+	</div>
+	<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}

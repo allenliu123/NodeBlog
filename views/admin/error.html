@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block main%}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/admin">后台管理</a></li>
+    <li class="breadcrumb-item active" aria-current="page">错误信息</li>
+  </ol>
+</nav>
+
+<div class="card">
+  <div class="card-header">
+    error
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{message}}</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="javascript:window.history.back();" class="btn btn-primary">back</a>
+  </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+
+{% block main%}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">用户管理</li>
+  </ol>
+</nav>
+
+<h3>用户列表</h3>
+
+<table class="table table-hover table-striped">
+	<tr>
+		<th>_id</th>
+		<th>用户名</th>
+		<th>密码</th>
+		<th>管理员</th>
+	</tr>
+	{% for user in users %}
+	<tr>
+		<td>{{user._id.toString()}}</td>
+		<td>{{user.username}}</td>
+		<td>{{user.password}}</td>
+		<td>{{user.isAdmin}}</td>
+	</tr>
+	{% endfor %}
+</table>
+
+<nav aria-label="Page navigation example">
+	<ul class="pagination justify-content-center">
+		{% if page == 1 %}
+		<li class="page-item disabled"><a class="page-link" href="">上一页</a></li>
+		{% else %}
+		<li class="page-item"><a class="page-link" href="/admin/user?page={{page-1}}">上一页</a></li>
+		{% endif %}
+
+		{% for i in array %}
+		<li class="page-item"><a class="page-link" href="/admin/user?page={{i}}">{{i}}</a></li>
+		{% endfor %}
+
+		{% if page == pages %}
+		<li class="page-item disabled"><a class="page-link" href="">下一页</a></li>
+		{% else %}
+		<li class="page-item"><a class="page-link" href="/admin/user?page={{page+1}}">下一页</a></li>
+		{% endif %}
+	</ul>
+</nav>
+
+
+{% endblock %}
