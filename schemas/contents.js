@@ -32,5 +32,10 @@ module.exports = new mongoose.Schema({
 	content: {
 		type: String,
 		default: 'default'
+	},
+
+	comments: {
+		type: Array,
+		default: []
 	}
 });

@@ -59,7 +59,6 @@ $(document).ready(function(){
 				
 			},
 			success:function(result){
-				// console.log(result);
 				if(result.code == 0){
 					// $loginBox.find('p').html(result.message);
 					// setTimeout(function(){

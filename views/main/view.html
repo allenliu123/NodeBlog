@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% block view%}
+	<div class="card">
+		<div class="card-body">
+			<h3 class="text-center">{{content.title}}</h3>
+			<p class="text-center">作者: {{content.user.username}} - 时间: {{content.addTime|date('Y-m-d h:i:s',-8*60)}} - 已阅读: {{content.views}} - 评论: {{content.comments.length}}</p>
+			<p>简介: {{content.description}}</p>
+			<p>{{content.content}}</p>
+		</div>
+	</div><br>
+
+	<div class="card">
+		<div class="card-body">
+			<h5>评论 <small class="float-right">一共有<span id="commentsCount"></span>条评论</small></h5>
+			
+			<input type="hidden" id="contentId" value="{{content.id}}">
+			{% if userInfo._id %}
+				
+				<div class="input-group mb-3">
+					<textarea class="form-control" rows="3" aria-label="With textarea" id="postContent"></textarea>
+					<div class="input-group-append">
+						<button class="btn btn-outline-secondary" id="commentBtn">提交</button>
+					</div>
+				</div>
+			{% else %}
+				<p>你当前没有登录</p>
+			{% endif %}
+			<div id="commentContent">
+				
+			</div>
+		</div>
+	</div><br>
+
+	<script type="text/javascript" src="public/js/comment.js"></script>
+{% endblock %}
